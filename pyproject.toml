@@ -1,0 +1,33 @@
+[tool.poetry]
+name = "transcribe"
+version = "0.1.0"
+description = ""
+authors = ["Marek Zaremba-Pike <marekzp@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+torch = "^2.4.1"
+transformers = "^4.45.1"
+datasets = {extras = ["audio"], version = "^3.0.1"}
+accelerate = "^0.34.2"
+
+
+[tool.poetry.group.lint.dependencies]
+ruff = "^0.6.8"
+
+[tool.ruff.lint]
+extend-select = [
+    "G",   # flake8-logging-format
+    "I",   # isort
+    "LOG", # flake8-logging
+    "T20", # flake8-print
+    "UP",  # pyupdate
+]
+
+[tool.ruff.lint.isort]
+combine-as-imports = true
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
